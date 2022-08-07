@@ -1,10 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include"LinkedStack.c"
 
 
 typedef struct QueueNode
 {
-    int data;
+    Vertex * data;
     struct QueueNode* next;
 }LinkedQueueNode,*LinkedQueueList;
 
@@ -28,7 +27,7 @@ LinkedQueueList initQueue(){
  * @param L 
  * @param e 要添加的数据
  */
-void enQueue(LinkedQueueList L,int e){
+void enQueue(LinkedQueueList L,Vertex * e){
 
     LinkedQueueNode* addData = (LinkedQueueNode*)malloc(sizeof(LinkedQueueNode));
     addData->data = e;
@@ -47,17 +46,17 @@ void enQueue(LinkedQueueList L,int e){
  * @brief 出队
  * 
  * @param L 
- * @return int 
+ * @return Vertex * 
  */
-int deQueue(LinkedQueueList L){
+Vertex * deQueue(LinkedQueueList L){
     if(L->next == NULL){
-        return -999;
+        return NULL;
     }
 
     LinkedQueueNode* p = L->next;
     L->next = L->next->next;
 
-    int e = p->data;
+    Vertex * e = p->data;
     free(p);
 
     return e;
@@ -68,11 +67,11 @@ int deQueue(LinkedQueueList L){
  * @brief 返回队首元素
  * 
  * @param L 
- * @return int 
+ * @return Vertex * 
  */
-int queueTop(LinkedQueueList L){
+Vertex * queueTop(LinkedQueueList L){
     if(L->next == NULL){
-        return -999;
+        return NULL;
     }
 
     return L->next->data;
