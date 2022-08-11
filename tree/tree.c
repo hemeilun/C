@@ -198,6 +198,19 @@ int heightNonrecursive(treeNode *t){
 
 
 
+//递归方式计算树的高度
+int height(treeNode *t){
+
+   if(t==NULL){
+    return 0;
+   }
+
+   int leftHeight = height(t->lchild);
+   int rightHeight = height(t->rchild);
+
+   return leftHeight>rightHeight?leftHeight+1:rightHeight+1;
+}
+
 
 
 
@@ -358,6 +371,10 @@ int isTwoTreeSimlar(treeNode *t1,treeNode *t2){
 
 
 
+
+
+
+
 int main(){
 
     treeNode* node1 = (treeNode*)malloc(sizeof(treeNode));
@@ -415,7 +432,7 @@ int main(){
 
 
 //    中序遍历
-   midOrder(node1);
+//    midOrder(node1);
    //midOrderNonrecursive(node1);
    //postOrderNonrecursive(node1);
    //hierarchicalTraversal(node1);
@@ -455,6 +472,8 @@ int main(){
 
 //    int arrp[10] = {4,1,0,2,3,7,6,5,8,9};
 //    int arrm[10] = {0,1,2,3,4,5,6,7,8,9};
+
+  printf("%d",height(node2));
 
    
 }
