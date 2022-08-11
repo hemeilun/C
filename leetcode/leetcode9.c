@@ -18,9 +18,7 @@ int isPalindrome(int x){
 
         for (int i = 0; i < index/2; i++)
         {
-            if(num[i] == num[index-i-1]){
-                i++;
-            }else{
+            if(num[i] != num[index-i-1]){
                 return 0;
             }
         }
